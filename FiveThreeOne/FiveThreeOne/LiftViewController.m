@@ -10,19 +10,26 @@
 #import "AppFormatters.h"
 #import "FiveThreeOneHelper.h"
 #import "WeekSelectorTableViewCell.h"
+#import "ExerciseDescriptor.h"
 
 
 @implementation LiftViewController
 
-- (instancetype) init
+- (instancetype)initWithCoder: (NSCoder*) aDecoder
 {
-    if (self = [super init])
+    if (self = [super initWithCoder: aDecoder])
     {
         self.navigationItem.title = NSLocalizedString(@"Lift", nil);
-
+        type_ = Squat;
     }
 
     return self;
+}
+
+- (void)viewDidLoad
+{
+    [self restoreLastSavedTrainingWeightsAndReps];
+    [super viewDidLoad];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -72,20 +79,26 @@
         {
             NSUInteger tag;
             NSString* placeHolderText;
+            NSString* text = @"";
             if (indexPath.row == 0)
             {
                 placeHolderText = NSLocalizedString(@"Weight", nil);
                 tag = WEIGHT_TEXT_FIELD_TAG;
+                if ([InputValidators isValidWeight: weight_])
+                    text = [[AppFormatters numberWithDecimalFormatter] stringFromNumber: @(weight_)];
             }
             else
             {
                 placeHolderText = NSLocalizedString(@"Reps", nil);
                 tag = REPS_TEXT_FILED_TAG;
+                if ([InputValidators isValidRepRange: reps_])
+                    text = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(reps_)];
             }
             TextEntryTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"TextEntryCell"];
             if (!cell)
                 cell = [[TextEntryTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"TextEntryCell"];
             [cell setPlaceHolderText: placeHolderText];
+            [cell.textField setText: text];
             [cell setTextFieldChangedTarget: self handler: @selector(textFieldDidChange:)];
             [cell setTextFieldTag: tag];
             return cell;
@@ -208,7 +221,8 @@
                 NSUInteger setNumber = (set % 3) + 1;
                 NSString* setString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(setNumber)];
                 NSString* repsString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(reps)];
-                cell.textLabel.text = [NSString stringWithFormat: @"%@ %@: %@ x %@", setText, setString, weightString, repsString];
+                NSString* plusString = [FiveThreeOneHelper isPlusSet: set] ? @"+" : @"";
+                cell.textLabel.text = [NSString stringWithFormat: @"%@ %@: %@ x %@%@", setText, setString, weightString, repsString, plusString];
             }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
@@ -264,6 +278,7 @@
 
     [self.tableView reloadRowsAtIndexPaths: @[[NSIndexPath indexPathForRow: 2 inSection: 0]] withRowAnimation: UITableViewRowAnimationNone];
     [self.tableView reloadSections: [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(1, 3)] withRowAnimation: UITableViewRowAnimationNone];
+    [self saveCurrentTrainingWeightAndReps];
 }
 
 - (void) selectedWeekChanged: (UISegmentedControl*) segmentedControl
@@ -279,5 +294,41 @@
     weightRepsCell_.textLabel.text = weightRepText;
 
     [ProjectionHelper projectionForWeight: weight_ reps: reps_];
+}
+
+- (ExerciseType) getType
+{
+    return type_;
+}
+
+- (ExerciseDescriptor*) getDescriptor
+{
+    return [[ExerciseTypesManager instance] getDescriptorForType: [self getType]];
+}
+
+- (void) saveCurrentTrainingWeightAndReps
+{
+    if ([InputValidators isValidWeight: weight_] && [InputValidators isValidRepRange: reps_])
+    {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject: @(weight_) forKey: [[self getDescriptor] getDefaultsTrainingWeightKey]];
+        [defaults setObject: @(reps_) forKey: [[self getDescriptor] getDefaultsTrainingRepsKey]];
+    }
+}
+
+- (void) restoreLastSavedTrainingWeightsAndReps
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber* weightNumber = [defaults objectForKey: [[self getDescriptor] getDefaultsTrainingWeightKey]];
+    NSNumber* repsNumber = [defaults objectForKey: [[self getDescriptor] getDefaultsTrainingRepsKey]];
+
+    CGFloat weight = [weightNumber floatValue];
+    NSUInteger reps = (NSUInteger)[repsNumber integerValue];
+
+    if ([InputValidators isValidWeight: weight] && [InputValidators isValidRepRange: reps])
+    {
+        weight_ = weight;
+        reps_ = reps;
+    }
 }
 @end

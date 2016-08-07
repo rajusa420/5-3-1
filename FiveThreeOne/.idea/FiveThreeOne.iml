@@ -2,29 +2,49 @@
 <module type="CIDR_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/AppDelegate.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/WeekSelectorTableViewCell.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/LiftViewController.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/Info.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/main.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/LiftNavigationController.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/WeekSelectorTableViewCell.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/LiftNavigationController.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/FiveThreeOneHelper.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/InputValidators.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/Assets.xcassets" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/TextEntryTableViewCell.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/FiveThreeOneHelper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ShoulderPressDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/AppDelegate.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/TextEntryTableViewCell.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/InputValidators.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ExerciseTypesManager.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ShoulderPressViewController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/LiftNavigationController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/BenchDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/main.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ShoulderPressViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/LiftNavigationController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/BenchDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ExerciseDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/WeekSelectorTableViewCell.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SquatViewController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/InputValidators.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DeadliftViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/AppFormatters.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/FiveThreeOneHelper.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/BenchViewController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ProjectionHelper.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/LiftViewController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ProjectionHelper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/LiftViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SquatDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/FiveThreeOneHelper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/TextEntryTableViewCell.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/Base.lproj/LaunchScreen.storyboard" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/Base.lproj/Main.storyboard" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/AppFormatters.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SquatDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SquatViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ExerciseDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DeadliftDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/TextEntryTableViewCell.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/InputValidators.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DeadliftDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/BenchViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DeadliftViewController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/Assets.xcassets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/AppFormatters.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/LiftViewController.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/AppDelegate.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ExerciseTypesManager.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ShoulderPressDescriptor.m" isTestSource="false" />
     </content>
     <content url="file://$USER_HOME$/Library/Caches/AppCode2016.1/DerivedData/FiveThreeOne-dqfkdzvnboubxhghwpnvlzprttqw/Build/Intermediates/FiveThreeOne.build/Debug-iphoneos/FiveThreeOne.build/DerivedSources" />
     <orderEntry type="sourceFolder" forTests="false" />

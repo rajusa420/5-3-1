@@ -12,14 +12,24 @@
 		1E4C229A1D5660E70051CC3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4C22981D5660E70051CC3B /* Main.storyboard */; };
 		1E4C229C1D5660E70051CC3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E4C229B1D5660E70051CC3B /* Assets.xcassets */; };
 		1E4C229F1D5660E70051CC3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4C229D1D5660E70051CC3B /* LaunchScreen.storyboard */; };
+		C81151535853636B91099E13 /* SquatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115771E32AEC748D70D7C0 /* SquatViewController.m */; };
+		C8115190B4FCBA131BB4169D /* SquatDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115AF0DBAC0362E221355F /* SquatDescriptor.m */; };
+		C81152FA5F09A4D862257F92 /* ExerciseTypesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C811572E7D7622EFF0E689CB /* ExerciseTypesManager.m */; };
 		C8115337D86471449D5AA048 /* FiveThreeOneHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C81151778CD65CB0D40532BE /* FiveThreeOneHelper.m */; };
+		C81153B1E9A665EBBD835C9D /* DeadliftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115D4B99744CD9FC4D5CD5 /* DeadliftViewController.m */; };
+		C8115465C734732AB3D7AFB2 /* BenchDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115C503322EA1E50473074 /* BenchDescriptor.m */; };
 		C811548F882861B0D929AC91 /* WeekSelectorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C81156DC17185FC4233C2138 /* WeekSelectorTableViewCell.m */; };
+		C81154CC2F53E0DF71662118 /* ShoulderPressDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115FC661A666EF90856D2F /* ShoulderPressDescriptor.m */; };
 		C81154D8F1D4E711C0685694 /* AppFormatters.m in Sources */ = {isa = PBXBuildFile; fileRef = C81150AE8A8FED6DA1E3148C /* AppFormatters.m */; };
 		C81156FC4AAB4FD8F0E16B22 /* LiftNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115BCE4898BB212CB5B633 /* LiftNavigationController.m */; };
 		C811577D5A68CC44318BD46E /* LiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115A660BFAB6E9A7A66385 /* LiftViewController.m */; };
+		C81157A3328691DB9C26DDCC /* ExerciseDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C811502D3BE5A0B2B3B68907 /* ExerciseDescriptor.m */; };
+		C81157E7F3297C0C1D72DED9 /* BenchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115DC8B0A0FE31C4FA4412 /* BenchViewController.m */; };
+		C8115845B412BAEFD5778488 /* ShoulderPressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115391D1C2CD7F5FF9ED78 /* ShoulderPressViewController.m */; };
 		C81158E1D5D89A2A27E6B352 /* InputValidators.m in Sources */ = {isa = PBXBuildFile; fileRef = C811565B4C25DD1EF722A32E /* InputValidators.m */; };
 		C8115CE4EF2B525DDA234A7F /* ProjectionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C81154AEF37CDC8318221BD5 /* ProjectionHelper.m */; };
 		C8115D54D718137AFDDF98A3 /* TextEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C811563B3F7AC2D61B5AE469 /* TextEntryTableViewCell.m */; };
+		C8115F11EF4D79A3D1AD1C27 /* DeadliftDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C81150B9364920752A541E3E /* DeadliftDescriptor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,21 +42,41 @@
 		1E4C229E1D5660E70051CC3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E4C22A01D5660E70051CC3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C811502030EC78C905BBD01F /* TextEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEntryTableViewCell.h; sourceTree = "<group>"; };
+		C811502D3BE5A0B2B3B68907 /* ExerciseDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseDescriptor.m; sourceTree = "<group>"; };
 		C81150AE8A8FED6DA1E3148C /* AppFormatters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppFormatters.m; sourceTree = "<group>"; };
+		C81150B9364920752A541E3E /* DeadliftDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeadliftDescriptor.m; sourceTree = "<group>"; };
+		C81150D8DF25AD34228D9C45 /* BenchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BenchViewController.h; sourceTree = "<group>"; };
+		C81150DEEA1AE94A68913ACE /* ShoulderPressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoulderPressViewController.h; sourceTree = "<group>"; };
+		C81150E779999869C3038107 /* DeadliftDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeadliftDescriptor.h; sourceTree = "<group>"; };
 		C81151778CD65CB0D40532BE /* FiveThreeOneHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiveThreeOneHelper.m; sourceTree = "<group>"; };
+		C8115391D1C2CD7F5FF9ED78 /* ShoulderPressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoulderPressViewController.m; sourceTree = "<group>"; };
 		C81153AC79E2902B9313A607 /* FiveThreeOneHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiveThreeOneHelper.h; sourceTree = "<group>"; };
 		C81154AEF37CDC8318221BD5 /* ProjectionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectionHelper.m; sourceTree = "<group>"; };
+		C81154EACF0A4BEC24F94165 /* ExerciseTypesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTypesManager.h; sourceTree = "<group>"; };
 		C811550361C05708B76F92B3 /* ProjectionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectionHelper.h; sourceTree = "<group>"; };
 		C8115569C2087DEDAD1D0AF1 /* LiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiftViewController.h; sourceTree = "<group>"; };
+		C81155A61226D60D5B5E0970 /* BenchDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BenchDescriptor.h; sourceTree = "<group>"; };
 		C81155F03C83E9F952CEECD3 /* AppFormatters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppFormatters.h; sourceTree = "<group>"; };
+		C81155FBF4620188AD7FAE3C /* ShoulderPressDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoulderPressDescriptor.h; sourceTree = "<group>"; };
 		C811563B3F7AC2D61B5AE469 /* TextEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEntryTableViewCell.m; sourceTree = "<group>"; };
 		C811565B4C25DD1EF722A32E /* InputValidators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputValidators.m; sourceTree = "<group>"; };
 		C81156DC17185FC4233C2138 /* WeekSelectorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekSelectorTableViewCell.m; sourceTree = "<group>"; };
+		C811572E7D7622EFF0E689CB /* ExerciseTypesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTypesManager.m; sourceTree = "<group>"; };
+		C8115771E32AEC748D70D7C0 /* SquatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquatViewController.m; sourceTree = "<group>"; };
 		C8115A660BFAB6E9A7A66385 /* LiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiftViewController.m; sourceTree = "<group>"; };
+		C8115AE829E4125797FB37C2 /* SquatDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquatDescriptor.h; sourceTree = "<group>"; };
+		C8115AF0DBAC0362E221355F /* SquatDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquatDescriptor.m; sourceTree = "<group>"; };
+		C8115B99A78920B6D3D54B84 /* SquatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquatViewController.h; sourceTree = "<group>"; };
 		C8115BCE4898BB212CB5B633 /* LiftNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiftNavigationController.m; sourceTree = "<group>"; };
+		C8115C503322EA1E50473074 /* BenchDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BenchDescriptor.m; sourceTree = "<group>"; };
+		C8115D042E4908D8EF4F1EFB /* ExerciseDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseDescriptor.h; sourceTree = "<group>"; };
+		C8115D4B99744CD9FC4D5CD5 /* DeadliftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeadliftViewController.m; sourceTree = "<group>"; };
+		C8115DC8B0A0FE31C4FA4412 /* BenchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BenchViewController.m; sourceTree = "<group>"; };
+		C8115DE29BCC3BC3874A2672 /* DeadliftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeadliftViewController.h; sourceTree = "<group>"; };
 		C8115E8E96E7274F065E8E7B /* WeekSelectorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekSelectorTableViewCell.h; sourceTree = "<group>"; };
 		C8115E91F53C8F47A344FC35 /* InputValidators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputValidators.h; sourceTree = "<group>"; };
 		C8115ECFC460B53F514F144C /* LiftNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiftNavigationController.h; sourceTree = "<group>"; };
+		C8115FC661A666EF90856D2F /* ShoulderPressDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoulderPressDescriptor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +132,26 @@
 				C81153AC79E2902B9313A607 /* FiveThreeOneHelper.h */,
 				C81156DC17185FC4233C2138 /* WeekSelectorTableViewCell.m */,
 				C8115E8E96E7274F065E8E7B /* WeekSelectorTableViewCell.h */,
+				C811572E7D7622EFF0E689CB /* ExerciseTypesManager.m */,
+				C81154EACF0A4BEC24F94165 /* ExerciseTypesManager.h */,
+				C811502D3BE5A0B2B3B68907 /* ExerciseDescriptor.m */,
+				C8115D042E4908D8EF4F1EFB /* ExerciseDescriptor.h */,
+				C8115AF0DBAC0362E221355F /* SquatDescriptor.m */,
+				C8115AE829E4125797FB37C2 /* SquatDescriptor.h */,
+				C8115C503322EA1E50473074 /* BenchDescriptor.m */,
+				C81155A61226D60D5B5E0970 /* BenchDescriptor.h */,
+				C81150B9364920752A541E3E /* DeadliftDescriptor.m */,
+				C81150E779999869C3038107 /* DeadliftDescriptor.h */,
+				C8115FC661A666EF90856D2F /* ShoulderPressDescriptor.m */,
+				C81155FBF4620188AD7FAE3C /* ShoulderPressDescriptor.h */,
+				C8115771E32AEC748D70D7C0 /* SquatViewController.m */,
+				C8115B99A78920B6D3D54B84 /* SquatViewController.h */,
+				C8115DC8B0A0FE31C4FA4412 /* BenchViewController.m */,
+				C81150D8DF25AD34228D9C45 /* BenchViewController.h */,
+				C8115D4B99744CD9FC4D5CD5 /* DeadliftViewController.m */,
+				C8115DE29BCC3BC3874A2672 /* DeadliftViewController.h */,
+				C8115391D1C2CD7F5FF9ED78 /* ShoulderPressViewController.m */,
+				C81150DEEA1AE94A68913ACE /* ShoulderPressViewController.h */,
 			);
 			path = FiveThreeOne;
 			sourceTree = "<group>";
@@ -194,6 +244,16 @@
 				C81158E1D5D89A2A27E6B352 /* InputValidators.m in Sources */,
 				C8115337D86471449D5AA048 /* FiveThreeOneHelper.m in Sources */,
 				C811548F882861B0D929AC91 /* WeekSelectorTableViewCell.m in Sources */,
+				C81152FA5F09A4D862257F92 /* ExerciseTypesManager.m in Sources */,
+				C81157A3328691DB9C26DDCC /* ExerciseDescriptor.m in Sources */,
+				C8115190B4FCBA131BB4169D /* SquatDescriptor.m in Sources */,
+				C8115465C734732AB3D7AFB2 /* BenchDescriptor.m in Sources */,
+				C8115F11EF4D79A3D1AD1C27 /* DeadliftDescriptor.m in Sources */,
+				C81154CC2F53E0DF71662118 /* ShoulderPressDescriptor.m in Sources */,
+				C81151535853636B91099E13 /* SquatViewController.m in Sources */,
+				C81157E7F3297C0C1D72DED9 /* BenchViewController.m in Sources */,
+				C81153B1E9A665EBBD835C9D /* DeadliftViewController.m in Sources */,
+				C8115845B412BAEFD5778488 /* ShoulderPressViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

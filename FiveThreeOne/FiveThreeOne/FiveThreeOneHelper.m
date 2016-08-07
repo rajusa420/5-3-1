@@ -131,6 +131,11 @@
     return (set == warmupOne) || (set == warmupTwo) || (set == warmupThree);
 }
 
++ (BOOL) isPlusSet: (FiveThreeOneSet) set
+{
+    return (set == setThree);
+}
+
 + (NSString*) getFiveThreeOneWeekSectionHeaderText: (FiveThreeOneWeek) week
 {
     if (week == fivesWeek)

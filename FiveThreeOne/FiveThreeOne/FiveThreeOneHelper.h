@@ -30,5 +30,6 @@ typedef enum
 + (CGFloat)getPercentageForWeek: (FiveThreeOneWeek) week set: (FiveThreeOneSet) set;
 + (CGFloat)getRepsForWeek: (FiveThreeOneWeek) week set: (FiveThreeOneSet) set;
 + (BOOL) isWarmupSet: (FiveThreeOneSet) set;
++ (BOOL) isPlusSet: (FiveThreeOneSet) set;
 + (NSString*) getFiveThreeOneWeekSectionHeaderText: (FiveThreeOneWeek) week;
 @end

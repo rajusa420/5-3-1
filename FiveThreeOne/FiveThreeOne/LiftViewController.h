@@ -5,6 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "ExerciseTypesManager.h"
 
 @class WeekSelectorTableViewCell;
 
@@ -15,5 +16,6 @@
     WeekSelectorTableViewCell* weekSelectorCell_;
     CGFloat weight_;
     NSUInteger reps_;
+    ExerciseType type_;
 }
 @end

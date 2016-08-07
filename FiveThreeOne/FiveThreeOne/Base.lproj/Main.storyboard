@@ -10,6 +10,7 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="db5-WM-iHk"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -18,16 +19,19 @@
                     </tabBar>
                     <connections>
                         <segue destination="Std-dJ-xvM" kind="relationship" relationship="viewControllers" id="EfM-h8-OvX"/>
+                        <segue destination="4lv-w1-1Lu" kind="relationship" relationship="viewControllers" id="u65-HQ-9Hs"/>
+                        <segue destination="aNU-cR-q6H" kind="relationship" relationship="viewControllers" id="AUp-90-6RS"/>
+                        <segue destination="W2f-L4-jII" kind="relationship" relationship="viewControllers" id="Tk3-1y-vaX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Lift-->
+        <!--Squat-->
         <scene sceneID="23J-jR-kB9">
             <objects>
-                <tableViewController title="Lift" id="nh9-of-Dqk" customClass="LiftViewController" sceneMemberID="viewController">
+                <tableViewController title="Lift" id="nh9-of-Dqk" userLabel="Squat" customClass="SquatViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UGk-dl-PPg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -40,7 +44,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QwO-3L-X2u">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="QwO-3L-X2u">
                                             <rect key="frame" x="18" y="3" width="564" height="41"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
@@ -65,7 +69,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DoP-hS-KXC">
-                                            <rect key="frame" x="0.0" y="8" width="600" height="28.5"/>
+                                            <rect key="frame" x="0.0" y="7.5" width="600" height="29"/>
                                             <segments>
                                                 <segment title="Week 1"/>
                                                 <segment title="Week 2"/>
@@ -94,7 +98,7 @@
                             <outlet property="delegate" destination="nh9-of-Dqk" id="HGY-Qh-Pyt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Lift" id="o1s-2H-XSd"/>
+                    <navigationItem key="navigationItem" title="Squat" id="o1s-2H-XSd"/>
                     <connections>
                         <outlet property="view" destination="UGk-dl-PPg" id="7E2-xN-LWT"/>
                     </connections>
@@ -103,11 +107,90 @@
             </objects>
             <point key="canvasLocation" x="1636" y="-390"/>
         </scene>
-        <!--Lift-->
+        <!--Bench-->
+        <scene sceneID="IZ9-QA-qjY">
+            <objects>
+                <tableViewController title="Lift" id="qYV-BY-ens" userLabel="Bench" customClass="BenchViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="a0Y-r2-zDN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextEntryCell" id="sc5-b7-oON" customClass="TextEntryTableViewCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sc5-b7-oON" id="GCN-h3-bSG">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="EFx-tY-ZSw">
+                                            <rect key="frame" x="18" y="3" width="564" height="41"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="EFx-tY-ZSw" firstAttribute="leading" secondItem="GCN-h3-bSG" secondAttribute="leadingMargin" constant="10" id="HVZ-Nx-XYX"/>
+                                        <constraint firstItem="EFx-tY-ZSw" firstAttribute="top" secondItem="GCN-h3-bSG" secondAttribute="topMargin" constant="-5" id="LFB-CP-Fab"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="EFx-tY-ZSw" secondAttribute="trailing" constant="10" id="aW7-2P-K7H"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="EFx-tY-ZSw" secondAttribute="bottom" constant="-8" id="gZE-fa-cWY"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textField" destination="EFx-tY-ZSw" id="dyD-eV-nIJ"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FiveThreeOneWeekSelectorCell" id="Mcu-SK-7fc" userLabel="WeekSelectorTableViewCell" customClass="WeekSelectorTableViewCell">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mcu-SK-7fc" id="7uw-83-AsT">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8JK-mZ-Ow7">
+                                            <rect key="frame" x="0.0" y="8" width="600" height="29"/>
+                                            <segments>
+                                                <segment title="Week 1"/>
+                                                <segment title="Week 2"/>
+                                                <segment title="Week 3"/>
+                                                <segment title="Deload"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="selectedWeekChanged:" destination="Mcu-SK-7fc" eventType="valueChanged" id="Z11-af-pDc"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="8JK-mZ-Ow7" secondAttribute="trailing" id="76U-fc-ia4"/>
+                                        <constraint firstItem="8JK-mZ-Ow7" firstAttribute="top" secondItem="7uw-83-AsT" secondAttribute="topMargin" id="Y8z-gU-vWd"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="8JK-mZ-Ow7" secondAttribute="bottom" id="jhR-FZ-eN3"/>
+                                        <constraint firstItem="8JK-mZ-Ow7" firstAttribute="leading" secondItem="7uw-83-AsT" secondAttribute="leading" id="qRU-sS-sxu"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="weekSegmentControl" destination="8JK-mZ-Ow7" id="ZKP-Oa-oaS"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qYV-BY-ens" id="hfP-mX-vdt"/>
+                            <outlet property="delegate" destination="qYV-BY-ens" id="mv0-Zj-Zha"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Bench" id="6RO-uH-fYn"/>
+                    <connections>
+                        <outlet property="view" destination="a0Y-r2-zDN" id="EYv-lB-g3Q"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPN-fp-I66" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1636" y="409"/>
+        </scene>
+        <!--SquatNavigation-->
         <scene sceneID="DLI-3r-lH4">
             <objects>
-                <navigationController title="Lift" id="Std-dJ-xvM" customClass="LiftNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Lift" selectedImage="second" id="ZcJ-xI-WWX"/>
+                <navigationController title="Lift" id="Std-dJ-xvM" userLabel="SquatNavigation" customClass="LiftNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Squat" image="first" selectedImage="first" id="ZcJ-xI-WWX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nbc-uT-HTA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -120,8 +203,218 @@
             </objects>
             <point key="canvasLocation" x="816" y="-390"/>
         </scene>
+        <!--BenchNavigation-->
+        <scene sceneID="2MJ-3r-vWj">
+            <objects>
+                <navigationController title="Lift" id="4lv-w1-1Lu" userLabel="BenchNavigation" customClass="LiftNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bench" image="second" selectedImage="second" id="jHJ-iQ-gBr"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9aT-jp-rVq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="qYV-BY-ens" kind="relationship" relationship="rootViewController" id="PSL-F1-YdF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iuf-Zs-bad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="816" y="409"/>
+        </scene>
+        <!--Deadlift-->
+        <scene sceneID="Rjb-kE-rOh">
+            <objects>
+                <tableViewController title="Lift" id="cwn-tL-SFQ" userLabel="Deadlift" customClass="DeadliftViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cbU-ZD-KV4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextEntryCell" id="hU2-Lr-QeD" customClass="TextEntryTableViewCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hU2-Lr-QeD" id="wRO-Eg-aRy">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="w3b-Xb-s7a">
+                                            <rect key="frame" x="18" y="3" width="564" height="41"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="w3b-Xb-s7a" secondAttribute="trailing" constant="10" id="58W-hJ-SHj"/>
+                                        <constraint firstItem="w3b-Xb-s7a" firstAttribute="leading" secondItem="wRO-Eg-aRy" secondAttribute="leadingMargin" constant="10" id="ZNa-P1-YuQ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="w3b-Xb-s7a" secondAttribute="bottom" constant="-8" id="azo-8h-HMr"/>
+                                        <constraint firstItem="w3b-Xb-s7a" firstAttribute="top" secondItem="wRO-Eg-aRy" secondAttribute="topMargin" constant="-5" id="kNv-e0-8Ki"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textField" destination="w3b-Xb-s7a" id="aGg-Fd-1wk"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FiveThreeOneWeekSelectorCell" id="JbW-5A-jPQ" userLabel="WeekSelectorTableViewCell" customClass="WeekSelectorTableViewCell">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JbW-5A-jPQ" id="GbU-5s-Y8s">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AUu-3F-mgt">
+                                            <rect key="frame" x="0.0" y="8" width="600" height="29"/>
+                                            <segments>
+                                                <segment title="Week 1"/>
+                                                <segment title="Week 2"/>
+                                                <segment title="Week 3"/>
+                                                <segment title="Deload"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="selectedWeekChanged:" destination="JbW-5A-jPQ" eventType="valueChanged" id="waJ-4V-LJr"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="AUu-3F-mgt" secondAttribute="trailing" id="7Po-vi-giz"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="AUu-3F-mgt" secondAttribute="bottom" id="GkR-eC-ECd"/>
+                                        <constraint firstItem="AUu-3F-mgt" firstAttribute="top" secondItem="GbU-5s-Y8s" secondAttribute="topMargin" id="IcH-rr-YnN"/>
+                                        <constraint firstItem="AUu-3F-mgt" firstAttribute="leading" secondItem="GbU-5s-Y8s" secondAttribute="leading" id="d8H-ZX-biN"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="weekSegmentControl" destination="AUu-3F-mgt" id="Kw1-mX-2OP"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cwn-tL-SFQ" id="WCy-TI-u2R"/>
+                            <outlet property="delegate" destination="cwn-tL-SFQ" id="YL1-sC-TCQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Deadlift" id="y0S-1D-Vws"/>
+                    <connections>
+                        <outlet property="view" destination="cbU-ZD-KV4" id="KLO-qK-rDM"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oIa-kh-1lH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1631" y="1146"/>
+        </scene>
+        <!--DeadliftNavigation-->
+        <scene sceneID="9Xw-Qc-rJt">
+            <objects>
+                <navigationController title="Lift" id="aNU-cR-q6H" userLabel="DeadliftNavigation" customClass="LiftNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Deadlift" image="first" selectedImage="first" id="lzb-R2-XPc"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="US2-tF-VuV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cwn-tL-SFQ" kind="relationship" relationship="rootViewController" id="MK7-ta-dxC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5f7-6e-Ztq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="795" y="1326"/>
+        </scene>
+        <!--ShoulderPress-->
+        <scene sceneID="rIn-aa-Bqq">
+            <objects>
+                <tableViewController title="Lift" id="TMH-kZ-CYs" userLabel="ShoulderPress" customClass="ShoulderPressViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Uix-Qi-FXa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextEntryCell" id="8uM-nC-xsC" customClass="TextEntryTableViewCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8uM-nC-xsC" id="ht9-dT-Mec">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="a5j-K0-zGA">
+                                            <rect key="frame" x="18" y="3" width="564" height="41"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="a5j-K0-zGA" secondAttribute="trailing" constant="10" id="7QL-kv-tgn"/>
+                                        <constraint firstItem="a5j-K0-zGA" firstAttribute="leading" secondItem="ht9-dT-Mec" secondAttribute="leadingMargin" constant="10" id="9CB-4n-2QK"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="a5j-K0-zGA" secondAttribute="bottom" constant="-8" id="BhO-UG-H1c"/>
+                                        <constraint firstItem="a5j-K0-zGA" firstAttribute="top" secondItem="ht9-dT-Mec" secondAttribute="topMargin" constant="-5" id="rQL-y0-BHi"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textField" destination="a5j-K0-zGA" id="3hC-g5-40Y"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FiveThreeOneWeekSelectorCell" id="jd6-TZ-lwZ" userLabel="WeekSelectorTableViewCell" customClass="WeekSelectorTableViewCell">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jd6-TZ-lwZ" id="I9M-J8-nwW">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8cp-ik-Bjq">
+                                            <rect key="frame" x="0.0" y="8" width="600" height="29"/>
+                                            <segments>
+                                                <segment title="Week 1"/>
+                                                <segment title="Week 2"/>
+                                                <segment title="Week 3"/>
+                                                <segment title="Deload"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="selectedWeekChanged:" destination="jd6-TZ-lwZ" eventType="valueChanged" id="pkZ-op-dyp"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="8cp-ik-Bjq" secondAttribute="trailing" id="bSM-AV-6th"/>
+                                        <constraint firstItem="8cp-ik-Bjq" firstAttribute="top" secondItem="I9M-J8-nwW" secondAttribute="topMargin" id="fXy-Wc-6Pc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="8cp-ik-Bjq" secondAttribute="bottom" id="iWm-Eb-BKL"/>
+                                        <constraint firstItem="8cp-ik-Bjq" firstAttribute="leading" secondItem="I9M-J8-nwW" secondAttribute="leading" id="sjv-EK-d6R"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="weekSegmentControl" destination="8cp-ik-Bjq" id="TLo-jU-Jra"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TMH-kZ-CYs" id="H8K-2w-53e"/>
+                            <outlet property="delegate" destination="TMH-kZ-CYs" id="Cc5-N2-GSQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="ShoulderPress" id="yq4-8x-Vit"/>
+                    <connections>
+                        <outlet property="view" destination="Uix-Qi-FXa" id="MA4-AB-Ad3"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c4E-fi-fyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1636" y="1848"/>
+        </scene>
+        <!--ShoulderPressNavigation-->
+        <scene sceneID="lOW-D6-Scy">
+            <objects>
+                <navigationController title="Lift" id="W2f-L4-jII" userLabel="ShoulderPressNavigation" customClass="LiftNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ShoulderPress" image="second" selectedImage="second" id="s2d-EH-Gze"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4KS-CT-of6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TMH-kZ-CYs" kind="relationship" relationship="rootViewController" id="S2Z-Ev-3nm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ud-5w-eVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="303" y="2366"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>
