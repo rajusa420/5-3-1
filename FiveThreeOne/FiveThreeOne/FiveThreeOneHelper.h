@@ -29,4 +29,6 @@ typedef enum
 @interface FiveThreeOneHelper : NSObject
 + (CGFloat)getPercentageForWeek: (FiveThreeOneWeek) week set: (FiveThreeOneSet) set;
 + (CGFloat)getRepsForWeek: (FiveThreeOneWeek) week set: (FiveThreeOneSet) set;
++ (BOOL) isWarmupSet: (FiveThreeOneSet) set;
++ (NSString*) getFiveThreeOneWeekSectionHeaderText: (FiveThreeOneWeek) week;
 @end

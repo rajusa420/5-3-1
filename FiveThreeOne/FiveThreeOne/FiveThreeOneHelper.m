@@ -17,9 +17,9 @@
             case warmupOne:
                 return 30;
             case warmupTwo:
-                return 40;
+                return 35;
             case warmupThree:
-                return 50;
+                return 45;
             case setOne:
                 return 65;
             case setTwo:
@@ -37,9 +37,9 @@
             case warmupOne:
                 return 30;
             case warmupTwo:
-                return 40;
+                return 35;
             case warmupThree:
-                return 50;
+                return 45;
             case setOne:
                 return 70;
             case setTwo:
@@ -57,9 +57,9 @@
             case warmupOne:
                 return 30;
             case warmupTwo:
-                return 40;
+                return 35;
             case warmupThree:
-                return 50;
+                return 45;
             case setOne:
                 return 75;
             case setTwo:
@@ -123,6 +123,31 @@
     else
     {
         return 5;
+    }
+}
+
++ (BOOL) isWarmupSet: (FiveThreeOneSet) set
+{
+    return (set == warmupOne) || (set == warmupTwo) || (set == warmupThree);
+}
+
++ (NSString*) getFiveThreeOneWeekSectionHeaderText: (FiveThreeOneWeek) week
+{
+    if (week == fivesWeek)
+    {
+        return @"Week 1 - 3x5";
+    }
+    else if (week == threesWeek)
+    {
+        return @"Week 2 - 3x3";
+    }
+    else if (week == fiveThreeOneWeek)
+    {
+        return @"Week 3 - 5,3,1";
+    }
+    else
+    {
+        return @"Deload";
     }
 }
 @end

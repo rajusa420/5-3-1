@@ -9,6 +9,7 @@
 #import "InputValidators.h"
 #import "AppFormatters.h"
 #import "FiveThreeOneHelper.h"
+#import "WeekSelectorTableViewCell.h"
 
 
 @implementation LiftViewController
@@ -26,7 +27,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 7;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -35,14 +36,19 @@
     {
         case 0:
             return 3;
-
         case 1:
-            return 2;
-
+            return 3;
+        case 3:
+            return 7;
         case 2:
         default:
-            return 7;
+            return 9;
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44.0f;
 }
 
 #define WEIGHT_TEXT_FIELD_TAG 100000
@@ -92,6 +98,7 @@
             cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"ProjectionCell"];
 
         CGFloat projection;
+        NSString* projectionString = @"projection";
         NSString* projectionName;
 
         if (indexPath.row == 0)
@@ -99,18 +106,25 @@
             projection = [ProjectionHelper epleyProjectedMaxForWeight: weight_ reps: reps_];
             projectionName = NSLocalizedString(@"Epley", nil);
         }
-        else
+        else if (indexPath.row == 1)
         {
             projection = [ProjectionHelper brzyckiProjectedMaxForWeight: weight_ reps: reps_];
             projectionName = NSLocalizedString(@"Brzycki", nil);
         }
+        else
+        {
+            projection = [ProjectionHelper projectionForWeight: weight_ reps: reps_];
+            projection = [ProjectionHelper getWeightForPercentage: projection percentage: 90];
+            projectionName = NSLocalizedString(@"Training", nil);
+            projectionString = NSLocalizedString(@"max", nil);
+        }
 
-        NSString* projectionText = [NSString stringWithFormat: @"%@ projection: %@", projectionName, [[AppFormatters numberWithDecimalFormatter] stringFromNumber: @(projection)]];
+        NSString* projectionText = [NSString stringWithFormat: @"%@ %@: %@", projectionName, projectionString, [[AppFormatters numberWithDecimalFormatter] stringFromNumber: @(projection)]];
         cell.textLabel.text = projectionText;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
-    else if (indexPath.section == 6)
+    else if (indexPath.section == 3)
     {
         UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"PercentageCell"];
         if (!cell)
@@ -139,42 +153,66 @@
     }
     else
     {
-        UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"FiveThreeOneCell"];
-        if (!cell)
-            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"FiveThreeOneCell"];
-
-        FiveThreeOneWeek week = (FiveThreeOneWeek)(indexPath.section - 2);
-        CGFloat projection = [ProjectionHelper projectionForWeight: weight_ reps: reps_];
-        CGFloat ninetyPercentOfProjection = [ProjectionHelper getWeightForPercentage: projection percentage: 90];
-        FiveThreeOneSet set = (FiveThreeOneSet) MIN(indexPath.row, setThree);
-        CGFloat percentage = [FiveThreeOneHelper getPercentageForWeek: week set: set];
-        CGFloat weight = ninetyPercentOfProjection * (percentage / 100.0f);
-        NSString* weightString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(weight)];
-
-        if (indexPath.row == 6)
+        if (indexPath.row == 0)
         {
-            if (ninetyPercentOfProjection > 0)
+            if (weekSelectorCell_)
+                return weekSelectorCell_;
+
+            WeekSelectorTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"FiveThreeOneWeekSelectorCell"];
+            if (!cell)
             {
-                NSUInteger repsToBeatProjectedMax = [ProjectionHelper getRepsToBeatEpleyProjection: ninetyPercentOfProjection withWeight: weight];
-                CGFloat projectedMax = [ProjectionHelper epleyProjectedMaxForWeight: weight reps: repsToBeatProjectedMax];
-                NSString* repsString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(repsToBeatProjectedMax)];
-                NSString* projectedMaxString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(projectedMax)];
-                cell.textLabel.text = [NSString stringWithFormat: @"%@ x %@ = %@ project max", weightString, repsString, projectedMaxString];
+                cell = [[WeekSelectorTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"FiveThreeOneWeekSelectorCell"];
             }
-            else
-            {
-                cell.textLabel.text = @"Reps to beat projected max";
-            }
+
+            [cell setSegmentChangedTarget: self handler: @selector(selectedWeekChanged:)];
+            weekSelectorCell_ = cell;
+            return cell;
         }
         else
         {
-            CGFloat reps = [FiveThreeOneHelper getRepsForWeek: week set: set];
-            NSString* setString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(indexPath.row + 1)];
-            NSString* repsString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(reps)];
-            cell.textLabel.text = [NSString stringWithFormat: @"Set %@: %@ x %@", setString, weightString, repsString];
+            UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"FiveThreeOneCell"];
+            if (!cell)
+                cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"FiveThreeOneCell"];
+
+            FiveThreeOneWeek week = (weekSelectorCell_) ? [weekSelectorCell_ getSelectedWeek] : fivesWeek;
+            CGFloat projection = [ProjectionHelper projectionForWeight: weight_ reps: reps_];
+            CGFloat ninetyPercentOfProjection = [ProjectionHelper getWeightForPercentage: projection percentage: 90];
+            FiveThreeOneSet set = (FiveThreeOneSet) MIN(indexPath.row - 1, setThree);
+            CGFloat percentage = [FiveThreeOneHelper getPercentageForWeek: week set: set];
+            CGFloat weight = ninetyPercentOfProjection * (percentage / 100.0f);
+            NSString* weightString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(weight)];
+
+            if (indexPath.row == 7 || indexPath.row == 8)
+            {
+                CGFloat cellProjection = indexPath.row == 7 ? ninetyPercentOfProjection : projection;
+                if (ninetyPercentOfProjection > 0)
+                {
+                    NSUInteger repsToBeatProjectedMax = [ProjectionHelper getRepsToBeatEpleyProjection: cellProjection withWeight: weight];
+                    CGFloat projectedMax = [ProjectionHelper epleyProjectedMaxForWeight: weight reps: repsToBeatProjectedMax];
+                    NSString* repsString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(repsToBeatProjectedMax)];
+                    NSString* projectedMaxString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(projectedMax)];
+                    cell.textLabel.text = [NSString stringWithFormat: @"%@ x %@ = %@ projected max", weightString, repsString, projectedMaxString];
+                }
+                else
+                {
+                    if (indexPath.row == 7)
+                        cell.textLabel.text = @"Reps to beat training max";
+                    else
+                        cell.textLabel.text = @"Reps to beat projected max";
+                }
+            }
+            else
+            {
+                CGFloat reps = [FiveThreeOneHelper getRepsForWeek: week set: set];
+                NSString* setText = [FiveThreeOneHelper isWarmupSet: set] ? @"Warmup" : @"Set";
+                NSUInteger setNumber = (set % 3) + 1;
+                NSString* setString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(setNumber)];
+                NSString* repsString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(reps)];
+                cell.textLabel.text = [NSString stringWithFormat: @"%@ %@: %@ x %@", setText, setString, weightString, repsString];
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
         }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
     }
 }
 
@@ -192,23 +230,18 @@
         case 1:
             return @"Projections";
         case 2:
-            if (projection > 0)
-                return [NSString stringWithFormat: @"Week 1 - 3x5 (%@)", projectionString];
-            return @"Week 1 - 3x5";
-        case 3:
-            if (projection > 0)
-                return [NSString stringWithFormat: @"Week 1 - 3x3 (%@)", projectionString];
-            return @"Week 2 - 3x3";
-        case 4:
-            if (projection > 0)
-                return [NSString stringWithFormat: @"Week 1 - 5, 3, 1 (%@)", projectionString];
-            return @"Week 3 - 5,3,1";
+        {
+            FiveThreeOneWeek week = fivesWeek;
+            if (weekSelectorCell_)
+                week = [weekSelectorCell_ getSelectedWeek];
 
-        case 5:
+            NSString* weekText =[FiveThreeOneHelper getFiveThreeOneWeekSectionHeaderText: week];
             if (projection > 0)
-                return [NSString stringWithFormat: @"Deload (%@)", projectionString];
-            return @"Deload";
-
+            {
+                return [NSString stringWithFormat: @"%@ (%@)", weekText, projectionString];
+            }
+            return weekText;
+        }
         default:
             return @"Percentages";
     }
@@ -230,7 +263,12 @@
     }
 
     [self.tableView reloadRowsAtIndexPaths: @[[NSIndexPath indexPathForRow: 2 inSection: 0]] withRowAnimation: UITableViewRowAnimationNone];
-    [self.tableView reloadSections: [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(1, 6)] withRowAnimation: UITableViewRowAnimationNone];
+    [self.tableView reloadSections: [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(1, 3)] withRowAnimation: UITableViewRowAnimationNone];
+}
+
+- (void) selectedWeekChanged: (UISegmentedControl*) segmentedControl
+{
+    [self.tableView reloadSections: [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(1, 3)] withRowAnimation: UITableViewRowAnimationNone];
 }
 
 - (void) refreshWeightRepCellText

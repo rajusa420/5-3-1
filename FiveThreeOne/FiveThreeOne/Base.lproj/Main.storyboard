@@ -37,33 +37,56 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t0l-Hx-UkH" id="rI0-Pa-5kg">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Test" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QwO-3L-X2u">
-                                            <rect key="frame" x="0.0" y="-9" width="600" height="53"/>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QwO-3L-X2u">
+                                            <rect key="frame" x="18" y="3" width="564" height="41"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                         </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="QwO-3L-X2u" secondAttribute="bottom" id="1PO-9V-OSf"/>
-                                        <constraint firstItem="QwO-3L-X2u" firstAttribute="leading" secondItem="rI0-Pa-5kg" secondAttribute="leadingMargin" id="3zA-3s-AQC"/>
-                                        <constraint firstItem="QwO-3L-X2u" firstAttribute="top" secondItem="rI0-Pa-5kg" secondAttribute="topMargin" id="c64-gS-Qri"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="QwO-3L-X2u" secondAttribute="trailing" id="uNl-GG-Gkp"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="QwO-3L-X2u" secondAttribute="bottom" constant="-8" id="1PO-9V-OSf"/>
+                                        <constraint firstItem="QwO-3L-X2u" firstAttribute="leading" secondItem="rI0-Pa-5kg" secondAttribute="leadingMargin" constant="10" id="3zA-3s-AQC"/>
+                                        <constraint firstItem="QwO-3L-X2u" firstAttribute="top" secondItem="rI0-Pa-5kg" secondAttribute="topMargin" constant="-5" id="c64-gS-Qri"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="QwO-3L-X2u" secondAttribute="trailing" constant="10" id="uNl-GG-Gkp"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="textField" destination="QwO-3L-X2u" id="mza-Mf-pwj"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="q65-dT-xkE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FiveThreeOneWeekSelectorCell" id="q65-dT-xkE" userLabel="WeekSelectorTableViewCell" customClass="WeekSelectorTableViewCell">
                                 <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q65-dT-xkE" id="adS-LJ-mug">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DoP-hS-KXC">
+                                            <rect key="frame" x="0.0" y="8" width="600" height="28.5"/>
+                                            <segments>
+                                                <segment title="Week 1"/>
+                                                <segment title="Week 2"/>
+                                                <segment title="Week 3"/>
+                                                <segment title="Deload"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="selectedWeekChanged:" destination="q65-dT-xkE" eventType="valueChanged" id="nL0-lH-bbf"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="DoP-hS-KXC" firstAttribute="top" secondItem="adS-LJ-mug" secondAttribute="topMargin" id="4pp-Rn-lIY"/>
+                                        <constraint firstAttribute="trailing" secondItem="DoP-hS-KXC" secondAttribute="trailing" id="7QZ-4C-DGq"/>
+                                        <constraint firstItem="DoP-hS-KXC" firstAttribute="leading" secondItem="adS-LJ-mug" secondAttribute="leading" id="8CK-pg-CF6"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="DoP-hS-KXC" secondAttribute="bottom" id="cnV-j1-u3y"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="weekSegmentControl" destination="DoP-hS-KXC" id="QRd-gL-xN7"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

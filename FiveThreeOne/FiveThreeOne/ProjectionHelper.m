@@ -11,9 +11,6 @@
 
 + (CGFloat)projectionForWeight: (CGFloat) weight reps: (NSUInteger) reps
 {
-    if (weight <= 0 || reps <= 0)
-        return 0;
-
     CGFloat epley = [ProjectionHelper epleyProjectedMaxForWeight: weight reps: reps];
     CGFloat brzycki = [ProjectionHelper brzyckiProjectedMaxForWeight: weight reps: reps];
 
