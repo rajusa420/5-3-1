@@ -50,6 +50,12 @@
     return entries;
 }
 
+- (NSArray*) getRecentEntriesForWeekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type
+{
+    NSArray* entries = [weightDatabase_ getRecentEntriesForWeekType: weekType exerciseType: exerciseType type: type];
+    return entries;
+}
+
 - (void) testDatabase
 {
     WeightEntry* entry = [[WeightEntry alloc] initWith: 0 weekType: fivesWeek exerciseType: Squat entryType: projectionType date: [DateHelper localDaySinceReferenceDate] time: [NSDate date] deleted: 0 lastupdated: [NSDate date] uniqueid: [CFUUIDHelper createCFUUID] weight: 225.5 reps: 5];

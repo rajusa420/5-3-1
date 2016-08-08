@@ -11,7 +11,7 @@
 {
     if (self = [super initWithCoder: aDecoder])
     {
-        type_ = Bench;
+        exerciseType_ = Bench;
         self.navigationItem.title = NSLocalizedString(@"Bench press", nil);
     }
 

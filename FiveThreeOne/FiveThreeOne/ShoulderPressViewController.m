@@ -11,7 +11,7 @@
 {
     if (self = [super initWithCoder: aDecoder])
     {
-        type_ = ShoulderPress;
+        exerciseType_ = ShoulderPress;
         self.navigationItem.title = NSLocalizedString(@"Shoulder press", nil);
     }
 

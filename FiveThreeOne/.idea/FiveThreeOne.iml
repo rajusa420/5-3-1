@@ -17,6 +17,7 @@
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/BenchViewController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/LiftNavigationController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/BenchDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/RecordWeightEntryController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SqlLiteDatabase.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ExerciseDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/WeekSelectorTableViewCell.m" isTestSource="false" />
@@ -58,6 +59,7 @@
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/CoreGraphicsHelper.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/Database/WeightLog.sqlite" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/CFUUIDHelper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/RecordWeightEntryController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DeadliftViewController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/CoreGraphicsHelper.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DateHelper.h" isTestSource="false" />
@@ -66,7 +68,6 @@
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ExerciseTypesManager.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ShoulderPressDescriptor.m" isTestSource="false" />
     </content>
-    <content url="file://$USER_HOME$/Library/Caches/AppCode2016.1/DerivedData/FiveThreeOne-dqfkdzvnboubxhghwpnvlzprttqw/Build/Intermediates/FiveThreeOne.build/Debug-iphoneos/FiveThreeOne.build/DerivedSources" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library name="Header Search Paths">

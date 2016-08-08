@@ -11,7 +11,7 @@
 {
     if (self = [super initWithCoder: aDecoder])
     {
-        type_ = Deadlift;
+        exerciseType_ = Deadlift;
         self.navigationItem.title = NSLocalizedString(@"Deadlift", nil);
     }
 

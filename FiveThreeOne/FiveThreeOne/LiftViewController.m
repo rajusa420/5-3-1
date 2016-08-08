@@ -11,6 +11,9 @@
 #import "FiveThreeOneHelper.h"
 #import "WeekSelectorTableViewCell.h"
 #import "ExerciseDescriptor.h"
+#import "RecordWeightEntryController.h"
+#import "WeightEntry.h"
+#import "AppModel.h"
 
 
 @implementation LiftViewController
@@ -20,7 +23,7 @@
     if (self = [super initWithCoder: aDecoder])
     {
         self.navigationItem.title = NSLocalizedString(@"Lift", nil);
-        type_ = Squat;
+        exerciseType_ = Squat;
     }
 
     return self;
@@ -32,24 +35,32 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear: (BOOL) animated
+{
+    recentEntries_ = nil;
+    [super viewWillAppear: animated];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     switch (section)
     {
-        case 0:
+        case calculateSection:
             return 3;
-        case 1:
+        case projectionSection:
             return 3;
-        case 3:
+        case recentLiftsSection:
+            return [[self getRecentWeightEntries] count];
+        case percentagesSection:
             return 7;
-        case 2:
+        case fiveThreeOneSection:
         default:
-            return 9;
+            return 10;
     }
 }
 
@@ -62,7 +73,7 @@
 #define REPS_TEXT_FILED_TAG 100001
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0)
+    if (indexPath.section == calculateSection)
     {
         if (indexPath.row == 2)
         {
@@ -104,7 +115,7 @@
             return cell;
         }
     }
-    else if (indexPath.section == 1)
+    else if (indexPath.section == projectionSection)
     {
         UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"ProjectionCell"];
         if (!cell)
@@ -137,7 +148,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
-    else if (indexPath.section == 3)
+    else if (indexPath.section == percentagesSection)
     {
         UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"PercentageCell"];
         if (!cell)
@@ -164,7 +175,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
-    else
+    else if (indexPath.section == fiveThreeOneSection)
     {
         if (indexPath.row == 0)
         {
@@ -194,7 +205,7 @@
             CGFloat percentage = [FiveThreeOneHelper getPercentageForWeek: week set: set];
             CGFloat weight = ninetyPercentOfProjection * (percentage / 100.0f);
             NSString* weightString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(weight)];
-
+            cell.accessoryType = UITableViewCellAccessoryNone;
             if (indexPath.row == 7 || indexPath.row == 8)
             {
                 CGFloat cellProjection = indexPath.row == 7 ? ninetyPercentOfProjection : projection;
@@ -214,6 +225,11 @@
                         cell.textLabel.text = @"Reps to beat projected max";
                 }
             }
+            else if (indexPath.row == 9)
+            {
+                cell.textLabel.text = @"Record New Projected Max";
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            }
             else
             {
                 CGFloat reps = [FiveThreeOneHelper getRepsForWeek: week set: set];
@@ -228,6 +244,25 @@
             return cell;
         }
     }
+    else
+    {
+        UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"RecentWeightEntries"];
+        if (!cell)
+            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"RecentWeightEntries"];
+
+        if (indexPath.row < [[self getRecentWeightEntries] count])
+        {
+            WeightEntry* entry = [self getRecentWeightEntries][(NSUInteger) indexPath.row];
+            NSString* weightString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(entry.weight)];
+            NSString* repsString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(entry.reps)];
+            CGFloat projection = [ProjectionHelper projectionForWeight: entry.weight reps: entry.reps];
+            NSString* projectionString = [[AppFormatters numberWithOutDecimalFormatter] stringFromNumber: @(projection)];
+            cell.textLabel.text = [NSString stringWithFormat: @"%@ x %@ = %@", weightString, repsString, projectionString];
+        }
+
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -239,11 +274,11 @@
 
     switch (section)
     {
-        case 0:
+        case calculateSection:
             return @"Calculate";
-        case 1:
+        case projectionSection:
             return @"Projections";
-        case 2:
+        case fiveThreeOneSection:
         {
             FiveThreeOneWeek week = fivesWeek;
             if (weekSelectorCell_)
@@ -256,6 +291,11 @@
             }
             return weekText;
         }
+
+        case recentLiftsSection:
+            return @"Recent Lifts";
+
+        case percentagesSection:
         default:
             return @"Percentages";
     }
@@ -281,6 +321,21 @@
     [self saveCurrentTrainingWeightAndReps];
 }
 
+- (void)tableView: (UITableView*) tableView didSelectRowAtIndexPath: (NSIndexPath*) indexPath
+{
+    if (indexPath.section == 2 && indexPath.row == 9)
+    {
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"RecordWeightEntryController"];
+        if ([controller isKindOfClass: [RecordWeightEntryController class]])
+        {
+            RecordWeightEntryController* recordWeightEntryController = (RecordWeightEntryController*)controller;
+            [recordWeightEntryController set: [weekSelectorCell_ getSelectedWeek] exerciseType: exerciseType_];
+        }
+        [self.navigationController pushViewController: controller animated:YES];
+    }
+}
+
 - (void) selectedWeekChanged: (UISegmentedControl*) segmentedControl
 {
     [self.tableView reloadSections: [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(1, 3)] withRowAnimation: UITableViewRowAnimationNone];
@@ -298,7 +353,7 @@
 
 - (ExerciseType) getType
 {
-    return type_;
+    return exerciseType_;
 }
 
 - (ExerciseDescriptor*) getDescriptor
@@ -330,5 +385,15 @@
         weight_ = weight;
         reps_ = reps;
     }
+}
+
+- (NSArray<WeightEntry*>*) getRecentWeightEntries
+{
+    if (!recentEntries_)
+    {
+        recentEntries_ = [[AppModel instance] getRecentEntriesForWeekType: [weekSelectorCell_ getSelectedWeek] exerciseType: exerciseType_ type: projectionType];
+    }
+
+    return recentEntries_;
 }
 @end

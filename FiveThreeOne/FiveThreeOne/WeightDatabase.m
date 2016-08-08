@@ -39,6 +39,24 @@
     return weightEntries;
 }
 
+- (NSArray*) getRecentEntriesForWeekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type
+{
+    NSString* sql = @"Select rowid, weekType, exerciseType, type, date, time, deleted, lastupdated, uniqueid, weight, reps FROM WeightEntries WHERE weekType = ? AND exerciseType = ? AND type = ? ORDER BY date DESC, rowid DESC LIMIT 3";
+    sqlite3_stmt* statement = [self getStatement: sql];
+    int colIndex = 1;
+    if (![self bindInt: weekType forStatement: statement atIndex: colIndex++])
+        return nil;
+    if (![self bindInt: exerciseType forStatement: statement atIndex: colIndex++])
+        return nil;
+    if (![self bindInt: type forStatement: statement atIndex: colIndex++])
+        return nil;
+
+    NSArray* weightEntries = [self executeStatement: statement processorTarget: self processorSelector: @selector(processWeightEntry:)];
+    [self finalizeStatement: statement];
+
+    return weightEntries;
+}
+
 - (BOOL) saveWeightEntry: (WeightEntry*) weightEntry
 {
     NSString* sql = @"Insert Into WeightEntries (weekType, exerciseType, type, date, time, deleted, lastupdated, uniqueid, weight, reps) Values (?, ?, ?, ?, ?, ?,  strftime('%s','now')*1000, ?, ?, ?)";

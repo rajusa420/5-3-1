@@ -19,6 +19,7 @@
 		C8115122BD27EB48F68BA1D7 /* WeightDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115FC13369DF4E40070B3B /* WeightDatabase.m */; };
 		C81151535853636B91099E13 /* SquatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115771E32AEC748D70D7C0 /* SquatViewController.m */; };
 		C8115190B4FCBA131BB4169D /* SquatDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115AF0DBAC0362E221355F /* SquatDescriptor.m */; };
+		C81151E72D2DEF6B48B42CB2 /* RecordWeightEntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115258370444BD48C1EB14 /* RecordWeightEntryController.m */; };
 		C811527AF293353AA1111D3B /* SqlLiteDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C8115D642F0CD5B21CA0D18A /* SqlLiteDatabase.m */; };
 		C81152FA5F09A4D862257F92 /* ExerciseTypesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C811572E7D7622EFF0E689CB /* ExerciseTypesManager.m */; };
 		C8115337D86471449D5AA048 /* FiveThreeOneHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C81151778CD65CB0D40532BE /* FiveThreeOneHelper.m */; };
@@ -64,6 +65,7 @@
 		C81150E779999869C3038107 /* DeadliftDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeadliftDescriptor.h; sourceTree = "<group>"; };
 		C811514173871C14770EABB5 /* CoreGraphicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreGraphicsHelper.h; sourceTree = "<group>"; };
 		C81151778CD65CB0D40532BE /* FiveThreeOneHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiveThreeOneHelper.m; sourceTree = "<group>"; };
+		C8115258370444BD48C1EB14 /* RecordWeightEntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordWeightEntryController.m; sourceTree = "<group>"; };
 		C81152D4DBFE8E690EC6658E /* AppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppModel.h; sourceTree = "<group>"; };
 		C8115350D6836671B5DE7485 /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelper.m; sourceTree = "<group>"; };
 		C8115391D1C2CD7F5FF9ED78 /* ShoulderPressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoulderPressViewController.m; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		C8115DC8B0A0FE31C4FA4412 /* BenchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BenchViewController.m; sourceTree = "<group>"; };
 		C8115DE29BCC3BC3874A2672 /* DeadliftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeadliftViewController.h; sourceTree = "<group>"; };
 		C8115E325C6FA5115ACF61BE /* SqlLiteDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqlLiteDatabase.h; sourceTree = "<group>"; };
+		C8115E6575DCCA5EE5D586D6 /* RecordWeightEntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordWeightEntryController.h; sourceTree = "<group>"; };
 		C8115E8E96E7274F065E8E7B /* WeekSelectorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekSelectorTableViewCell.h; sourceTree = "<group>"; };
 		C8115E91F53C8F47A344FC35 /* InputValidators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputValidators.h; sourceTree = "<group>"; };
 		C8115ECFC460B53F514F144C /* LiftNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiftNavigationController.h; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 				C8115740399106A847E1F0EB /* WeightEntry.h */,
 				C8115FA23291E4BFA6AE44D6 /* AppModel.m */,
 				C81152D4DBFE8E690EC6658E /* AppModel.h */,
+				C8115258370444BD48C1EB14 /* RecordWeightEntryController.m */,
+				C8115E6575DCCA5EE5D586D6 /* RecordWeightEntryController.h */,
 			);
 			path = FiveThreeOne;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				C8115122BD27EB48F68BA1D7 /* WeightDatabase.m in Sources */,
 				C8115E0BC27F5950D8481A17 /* WeightEntry.m in Sources */,
 				C8115078D6D4D6B6DFFB4235 /* AppModel.m in Sources */,
+				C81151E72D2DEF6B48B42CB2 /* RecordWeightEntryController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,16 @@
 #import "ExerciseTypesManager.h"
 
 @class WeekSelectorTableViewCell;
+@class WeightEntry;
+
+typedef enum
+{
+   calculateSection = 0,
+   projectionSection = 1,
+   fiveThreeOneSection = 2,
+   recentLiftsSection = 3,
+   percentagesSection = 4
+} LiftControllerSections;
 
 @interface LiftViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 {
@@ -16,6 +26,7 @@
     WeekSelectorTableViewCell* weekSelectorCell_;
     CGFloat weight_;
     NSUInteger reps_;
-    ExerciseType type_;
+    ExerciseType exerciseType_;
+    NSArray<WeightEntry*>* recentEntries_;
 }
 @end
