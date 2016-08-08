@@ -25,6 +25,7 @@
     if (self = [super init])
     {
         weightDatabase_ = [[WeightDatabase alloc] init];
+        [self testDatabase];
     }
 
     return self;
@@ -44,9 +45,9 @@
     return YES;
 }
 
-- (NSArray*) getWeightEntriesForDate: (int) date weekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type
+- (NSArray*) getWeightEntriesForWeekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type
 {
-    NSArray* entries = [weightDatabase_ getWeightEntriesForDate: date weekType: weekType exerciseType: exerciseType type: type];
+    NSArray* entries = [weightDatabase_ getWeightEntriesForWeekType: weekType exerciseType: exerciseType type: type];
     return entries;
 }
 
@@ -58,13 +59,18 @@
 
 - (void) testDatabase
 {
+#ifdef TARGET_IPHONE_SIMULATOR
     WeightEntry* entry = [[WeightEntry alloc] initWith: 0 weekType: fivesWeek exerciseType: Squat entryType: projectionType date: [DateHelper localDaySinceReferenceDate] time: [NSDate date] deleted: 0 lastupdated: [NSDate date] uniqueid: [CFUUIDHelper createCFUUID] weight: 225.5 reps: 5];
-    WeightEntry* entry1 = [[WeightEntry alloc] initWith: 0 weekType: fivesWeek exerciseType: Bench entryType: projectionType date: [DateHelper localDaySinceReferenceDate] time: [NSDate date] deleted: 0 lastupdated: [NSDate date] uniqueid: [CFUUIDHelper createCFUUID] weight: 145.5 reps: 2];
+    WeightEntry* entry1 = [[WeightEntry alloc] initWith: 0 weekType: fivesWeek exerciseType: Squat entryType: projectionType date: [DateHelper localDaySinceReferenceDate] - 1 time: [NSDate date] deleted: 0 lastupdated: [NSDate date] uniqueid: [CFUUIDHelper createCFUUID] weight: 260.5 reps: 2];
+    WeightEntry* entry2 = [[WeightEntry alloc] initWith: 0 weekType: fivesWeek exerciseType: Squat entryType: projectionType date: [DateHelper localDaySinceReferenceDate] - 1 time: [NSDate date] deleted: 0 lastupdated: [NSDate date] uniqueid: [CFUUIDHelper createCFUUID] weight: 270 reps: 2];
+
     [self logWeightEntry: entry];
     [self logWeightEntry: entry1];
+    [self logWeightEntry: entry2];
 
-    NSArray* array = [self getWeightEntriesForDate: [DateHelper localDaySinceReferenceDate] weekType: fivesWeek exerciseType: Squat type: projectionType];
+    NSArray* array = [self getWeightEntriesForWeekType: fivesWeek exerciseType: Squat type: projectionType];
     NSLog(@"Got back %ld", (unsigned long)[array count]);
+#endif
 }
 
 @end

@@ -11,7 +11,7 @@
 
 @interface WeightDatabase : SqlLiteDatabase
 - (id)init;
-- (NSArray*) getWeightEntriesForDate: (int) date weekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type;
+- (NSArray*) getWeightEntriesForWeekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type;
 - (NSArray*) getRecentEntriesForWeekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type;
 - (BOOL)saveWeightEntry: (WeightEntry*) weightEntry;
 - (NSObject*)processWeightEntry: (id) statement;

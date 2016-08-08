@@ -14,6 +14,8 @@
 #import "RecordWeightEntryController.h"
 #import "WeightEntry.h"
 #import "AppModel.h"
+#import "SimpleChart.h"
+#import "DateHelper.h"
 
 
 @implementation LiftViewController
@@ -43,13 +45,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return 6;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     switch (section)
     {
+        case graphSection:
+            return 1;
         case calculateSection:
             return 3;
         case projectionSection:
@@ -66,14 +70,42 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == graphSection)
+        return 300.0f;
     return 44.0f;
 }
 
 #define WEIGHT_TEXT_FIELD_TAG 100000
 #define REPS_TEXT_FILED_TAG 100001
+#define CHART_VIEW_TAG 100002
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == calculateSection)
+    if (indexPath.section == graphSection)
+    {
+        UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"ChartCell"];
+        SimpleChart* chartView;
+        if (!cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"ChartCell"];
+            chartView = [[SimpleChart alloc] initWithFrame: CGRectMake(0, 0, self.view.bounds.size.width, 300)];
+            chartView.tag = CHART_VIEW_TAG;
+            [chartView setLabelProvider: self];
+            [cell.contentView addSubview: chartView];
+        }
+        else
+        {
+            chartView = [cell.contentView viewWithTag: CHART_VIEW_TAG];
+        }
+
+        [self updateChartValues: chartView];
+        cell.backgroundColor = [UIColor redColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+
+
+        return cell;
+    }
+    else if (indexPath.section == calculateSection)
     {
         if (indexPath.row == 2)
         {
@@ -274,8 +306,10 @@
 
     switch (section)
     {
+        case graphSection:
+            return @"History";
         case calculateSection:
-            return @"Calculate";
+            return @"Calculate 1 Rep Max";
         case projectionSection:
             return @"Projections";
         case fiveThreeOneSection:
@@ -395,5 +429,26 @@
     }
 
     return recentEntries_;
+}
+
+- (NSString *) labelForXValue: (CGFloat) xValue
+{
+    NSDate* date = [DateHelper dateFromlocalDaySinceReferenceDate: (int) xValue];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat: @"MMM-d"];
+    return [format stringFromDate: date];
+}
+
+- (void) updateChartValues: (SimpleChart*) chart
+{
+    NSArray* entries = [[AppModel instance] getWeightEntriesForWeekType: [weekSelectorCell_ getSelectedWeek] exerciseType: exerciseType_ type: projectionType];
+    NSMutableArray* chartValues = [[NSMutableArray alloc] initWithCapacity: [entries count]];
+    for (WeightEntry* entry in entries)
+    {
+        CGFloat projection = [ProjectionHelper projectionForWeight: entry.weight reps: entry.reps];
+        [chartValues addObject: [SimpleChartPointValue simpleChartPointValueWithX: entry.date Y: projection]];
+    }
+
+    [chart setChartPointValue: chartValues];
 }
 @end

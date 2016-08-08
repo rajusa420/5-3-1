@@ -49,7 +49,7 @@ typedef enum
 @property (copy) NSDate* time;
 @property (nonatomic, assign) bool deleted;
 @property (copy) NSDate* lastUpdated;
-@property (readonly) CFUUIDBytes uniqueId;
+@property (nonatomic, assign) CFUUIDBytes uniqueId;
 @property (nonatomic, assign) CGFloat weight;
 @property (nonatomic, assign) NSUInteger reps;
 @end

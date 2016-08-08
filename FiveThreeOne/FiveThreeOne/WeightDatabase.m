@@ -18,7 +18,7 @@
     return self;
 }
 
-- (NSArray*) getWeightEntriesForDate: (int) date weekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type
+- (WeightEntry*) getWeightEntryForDate: (int) date weekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type
 {
     NSString* sql = @"Select rowid, weekType, exerciseType, type, date, time, deleted, lastupdated, uniqueid, weight, reps FROM WeightEntries WHERE date = ? AND weekType = ? AND exerciseType = ? AND type = ? ORDER BY date DESC, rowid DESC";
     sqlite3_stmt* statement = [self getStatement: sql];
@@ -26,6 +26,31 @@
     int colIndex = 1;
     if (![self bindInt: date forStatement: statement atIndex: colIndex++])
         return nil;
+    if (![self bindInt: weekType forStatement: statement atIndex: colIndex++])
+        return nil;
+    if (![self bindInt: exerciseType forStatement: statement atIndex: colIndex++])
+        return nil;
+    if (![self bindInt: type forStatement: statement atIndex: colIndex++])
+        return nil;
+
+    NSArray* weightEntries = [self executeStatement: statement processorTarget: self processorSelector: @selector(processWeightEntry:)];
+    [self finalizeStatement: statement];
+
+    if ([weightEntries count] > 1)
+        NSAssert(NO, @"More than one weight entry for date");
+
+    if ([weightEntries count] == 0)
+        return nil;
+
+    return (WeightEntry*) weightEntries[0];
+}
+
+- (NSArray*) getWeightEntriesForWeekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type
+{
+    NSString* sql = @"Select rowid, weekType, exerciseType, type, date, time, deleted, lastupdated, uniqueid, weight, reps FROM WeightEntries WHERE weekType = ? AND exerciseType = ? AND type = ? ORDER BY date DESC, rowid DESC";
+    sqlite3_stmt* statement = [self getStatement: sql];
+
+    int colIndex = 1;
     if (![self bindInt: weekType forStatement: statement atIndex: colIndex++])
         return nil;
     if (![self bindInt: exerciseType forStatement: statement atIndex: colIndex++])
@@ -57,8 +82,35 @@
     return weightEntries;
 }
 
+- (BOOL) updateWeightEntry: (WeightEntry*) weightEntry
+{
+    NSString* sql = @"UPDATE WeightEntries SET weight = ?, reps = ?, time = ?, LastUpdated = strftime('%s','now')*1000 WHERE UniqueId = ?";
+    sqlite3_stmt* statement = [self getStatement: sql];
+
+    int colIndex = 1;
+    [self bindDouble: weightEntry.weight forStatement: statement atIndex: colIndex++];
+    [self bindInt: (int)weightEntry.reps forStatement: statement atIndex: colIndex++];
+    [self bindInt64: (sqlite_int64)([weightEntry.time timeIntervalSince1970] * 1000) forStatement: statement atIndex: colIndex++];
+    [self bindCFUUID: weightEntry.uniqueId forStatement: statement atIndex: colIndex++];
+
+    if (![self executeStatement: statement])
+    {
+        return NO;
+    }
+
+    [self finalizeStatement: statement];
+    return YES;
+}
+
 - (BOOL) saveWeightEntry: (WeightEntry*) weightEntry
 {
+    WeightEntry* savedEntry = [self getWeightEntryForDate: weightEntry.date weekType: weightEntry.weekType exerciseType: weightEntry.exerciseType type: weightEntry.entryType];
+    if (savedEntry)
+    {
+        weightEntry.uniqueId = savedEntry.uniqueId;
+        return [self updateWeightEntry: weightEntry];
+    }
+
     NSString* sql = @"Insert Into WeightEntries (weekType, exerciseType, type, date, time, deleted, lastupdated, uniqueid, weight, reps) Values (?, ?, ?, ?, ?, ?,  strftime('%s','now')*1000, ?, ?, ?)";
     sqlite3_stmt* statement = [self getStatement: sql];
 
