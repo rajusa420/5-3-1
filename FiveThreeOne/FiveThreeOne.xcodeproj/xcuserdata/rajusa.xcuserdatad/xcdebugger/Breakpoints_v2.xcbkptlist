@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "457"
             endingLineNumber = "457"
-            landmarkName = "-handleViewTap:"
+            landmarkName = "-updateChartValues:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

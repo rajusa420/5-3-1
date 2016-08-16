@@ -386,7 +386,7 @@
 - (void) selectedWeekChanged: (UISegmentedControl*) segmentedControl
 {
     recentEntries_ = nil;
-    [self.tableView reloadSections: [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(1, 3)] withRowAnimation: UITableViewRowAnimationNone];
+    [self.tableView reloadData];
 }
 
 - (void) refreshWeightRepCellText
