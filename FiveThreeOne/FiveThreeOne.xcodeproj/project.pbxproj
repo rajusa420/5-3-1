@@ -101,6 +101,7 @@
 		C811594E7018FACC24ECA08B /* CFUUIDHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFUUIDHelper.h; sourceTree = "<group>"; };
 		C8115961C1BB9EB7F3700A51 /* SimpleChartCurrentValueOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleChartCurrentValueOverlay.m; sourceTree = "<group>"; };
 		C81159B128AC7C8234291436 /* SqlLite3Statement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqlLite3Statement.h; sourceTree = "<group>"; };
+		C81159F8AA786C96B33CF161 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		C8115A660BFAB6E9A7A66385 /* LiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiftViewController.m; sourceTree = "<group>"; };
 		C8115AE829E4125797FB37C2 /* SquatDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquatDescriptor.h; sourceTree = "<group>"; };
 		C8115AF0DBAC0362E221355F /* SquatDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquatDescriptor.m; sourceTree = "<group>"; };
@@ -235,6 +236,7 @@
 				C8115C7B365D838E4F824C5D /* SimpleChartLabelProvider.h */,
 				C81156386B7A121A509A7CA3 /* SimpleChartPointValue.h */,
 				C8115F022E2A87D1AFDC24F1 /* SimpleChartPointValue.m */,
+				C81159F8AA786C96B33CF161 /* AppConstants.h */,
 			);
 			path = FiveThreeOne;
 			sourceTree = "<group>";

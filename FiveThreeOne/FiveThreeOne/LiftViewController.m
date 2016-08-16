@@ -16,6 +16,7 @@
 #import "AppModel.h"
 #import "SimpleChart.h"
 #import "DateHelper.h"
+#import "AppConstants.h"
 
 
 @implementation LiftViewController
@@ -34,7 +35,13 @@
 - (void)viewDidLoad
 {
     [self restoreLastSavedTrainingWeightsAndReps];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(newWeightProjectionAvailable) name: weightProjectionLoggedNotification object: nil];
     [super viewDidLoad];
+}
+
+- (void)viewWillUnload
+{
+
 }
 
 - (void)viewWillAppear: (BOOL) animated
@@ -139,11 +146,17 @@
             }
             TextEntryTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"TextEntryCell"];
             if (!cell)
+            {
                 cell = [[TextEntryTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"TextEntryCell"];
+
+            }
+
+            [cell addInputAccessoryView];
             [cell setPlaceHolderText: placeHolderText];
             [cell.textField setText: text];
             [cell setTextFieldChangedTarget: self handler: @selector(textFieldDidChange:)];
             [cell setTextFieldTag: tag];
+
             return cell;
         }
     }
@@ -372,6 +385,7 @@
 
 - (void) selectedWeekChanged: (UISegmentedControl*) segmentedControl
 {
+    recentEntries_ = nil;
     [self.tableView reloadSections: [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(1, 3)] withRowAnimation: UITableViewRowAnimationNone];
 }
 
@@ -441,7 +455,7 @@
 
 - (void) updateChartValues: (SimpleChart*) chart
 {
-    NSArray* entries = [[AppModel instance] getWeightEntriesForWeekType: [weekSelectorCell_ getSelectedWeek] exerciseType: exerciseType_ type: projectionType];
+    NSArray* entries = [[AppModel instance] getWeightEntriesForExerciseType: exerciseType_ type: projectionType];
     NSMutableArray* chartValues = [[NSMutableArray alloc] initWithCapacity: [entries count]];
     for (WeightEntry* entry in entries)
     {
@@ -450,5 +464,15 @@
     }
 
     [chart setChartPointValue: chartValues];
+}
+
+- (void) handleViewTap: (UITapGestureRecognizer*) gestureRecognizer
+{
+    [self.view endEditing: NO];
+}
+
+- (void) newWeightProjectionAvailable
+{
+    [self.tableView reloadData];
 }
 @end

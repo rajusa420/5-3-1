@@ -64,6 +64,23 @@
     return weightEntries;
 }
 
+- (NSArray*) getWeightEntriesForExerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type
+{
+    NSString* sql = @"Select rowid, weekType, exerciseType, type, date, time, deleted, lastupdated, uniqueid, weight, reps FROM WeightEntries WHERE exerciseType = ? AND type = ? ORDER BY date DESC, rowid DESC";
+    sqlite3_stmt* statement = [self getStatement: sql];
+
+    int colIndex = 1;
+    if (![self bindInt: exerciseType forStatement: statement atIndex: colIndex++])
+        return nil;
+    if (![self bindInt: type forStatement: statement atIndex: colIndex++])
+        return nil;
+
+    NSArray* weightEntries = [self executeStatement: statement processorTarget: self processorSelector: @selector(processWeightEntry:)];
+    [self finalizeStatement: statement];
+
+    return weightEntries;
+}
+
 - (NSArray*) getRecentEntriesForWeekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type
 {
     NSString* sql = @"Select rowid, weekType, exerciseType, type, date, time, deleted, lastupdated, uniqueid, weight, reps FROM WeightEntries WHERE weekType = ? AND exerciseType = ? AND type = ? ORDER BY date DESC, rowid DESC LIMIT 3";

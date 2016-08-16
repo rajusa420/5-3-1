@@ -22,5 +22,6 @@
 - (BOOL)logWeightEntry: (WeightEntry*) entry;
 - (NSArray*) getWeightEntriesForWeekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type;
 - (NSArray*) getRecentEntriesForWeekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type;
+- (NSArray*) getWeightEntriesForExerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type;
 - (void)testDatabase;
 @end

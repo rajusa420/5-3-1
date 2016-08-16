@@ -16,6 +16,7 @@
 - (void) setPlaceHolderText: (NSString*) placeHolderText;
 - (void) setTextFieldChangedTarget: (id) target handler: (SEL) handler;
 - (void) setTextFieldTag: (NSUInteger) tag;
-
+- (IBAction)didEndEditing:(id)sender;
+- (void) addInputAccessoryView;
 @property (readonly) UITextField* textField;
 @end

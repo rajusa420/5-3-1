@@ -47,7 +47,11 @@
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="QwO-3L-X2u">
                                             <rect key="frame" x="18" y="3" width="564" height="41"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            <connections>
+                                                <action selector="didEndEditing:" destination="t0l-Hx-UkH" eventType="editingDidEnd" id="kyM-ho-DwL"/>
+                                                <outlet property="delegate" destination="t0l-Hx-UkH" id="wVD-kh-PHC"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>

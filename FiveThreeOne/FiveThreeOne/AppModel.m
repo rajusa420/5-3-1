@@ -8,6 +8,7 @@
 #import "WeightEntry.h"
 #import "DateHelper.h"
 #import "CFUUIDHelper.h"
+#import "AppConstants.h"
 
 
 @implementation AppModel
@@ -33,6 +34,7 @@
 
 - (BOOL) logWeightEntry: (WeightEntry*) entry
 {
+    //entry.date = 5698;
     [weightDatabase_ beginTransaction];
 
     if (![weightDatabase_ saveWeightEntry: entry])
@@ -42,6 +44,7 @@
     }
 
     [weightDatabase_ commitTransaction];
+    [[NSNotificationCenter defaultCenter] postNotificationName: weightProjectionLoggedNotification object: nil];
     return YES;
 }
 
@@ -57,20 +60,26 @@
     return entries;
 }
 
+- (NSArray*) getWeightEntriesForExerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type
+{
+    NSArray* entries = [weightDatabase_ getWeightEntriesForExerciseType: exerciseType type: type];
+    return entries;
+}
+
 - (void) testDatabase
 {
-#ifdef TARGET_IPHONE_SIMULATOR
-    WeightEntry* entry = [[WeightEntry alloc] initWith: 0 weekType: fivesWeek exerciseType: Squat entryType: projectionType date: [DateHelper localDaySinceReferenceDate] time: [NSDate date] deleted: 0 lastupdated: [NSDate date] uniqueid: [CFUUIDHelper createCFUUID] weight: 225.5 reps: 5];
-    WeightEntry* entry1 = [[WeightEntry alloc] initWith: 0 weekType: fivesWeek exerciseType: Squat entryType: projectionType date: [DateHelper localDaySinceReferenceDate] - 1 time: [NSDate date] deleted: 0 lastupdated: [NSDate date] uniqueid: [CFUUIDHelper createCFUUID] weight: 260.5 reps: 2];
-    WeightEntry* entry2 = [[WeightEntry alloc] initWith: 0 weekType: fivesWeek exerciseType: Squat entryType: projectionType date: [DateHelper localDaySinceReferenceDate] - 1 time: [NSDate date] deleted: 0 lastupdated: [NSDate date] uniqueid: [CFUUIDHelper createCFUUID] weight: 270 reps: 2];
+//#ifdef TARGET_IPHONE_SIMULATOR
+    //WeightEntry* entry = [[WeightEntry alloc] initWith: 0 weekType: fivesWeek exerciseType: Squat entryType: projectionType date: [DateHelper localDaySinceReferenceDate] time: [NSDate date] deleted: 0 lastupdated: [NSDate date] uniqueid: [CFUUIDHelper createCFUUID] weight: 225.5 reps: 5];
+    //WeightEntry* entry1 = [[WeightEntry alloc] initWith: 0 weekType: fivesWeek exerciseType: Squat entryType: projectionType date: [DateHelper localDaySinceReferenceDate] - 1 time: [NSDate date] deleted: 0 lastupdated: [NSDate date] uniqueid: [CFUUIDHelper createCFUUID] weight: 260.5 reps: 2];
+    //WeightEntry* entry2 = [[WeightEntry alloc] initWith: 0 weekType: fivesWeek exerciseType: Squat entryType: projectionType date: [DateHelper localDaySinceReferenceDate] - 1 time: [NSDate date] deleted: 0 lastupdated: [NSDate date] uniqueid: [CFUUIDHelper createCFUUID] weight: 270 reps: 2];
 
-    [self logWeightEntry: entry];
-    [self logWeightEntry: entry1];
-    [self logWeightEntry: entry2];
+    //[self logWeightEntry: entry];
+    //[self logWeightEntry: entry1];
+    //[self logWeightEntry: entry2];
 
     NSArray* array = [self getWeightEntriesForWeekType: fivesWeek exerciseType: Squat type: projectionType];
     NSLog(@"Got back %ld", (unsigned long)[array count]);
-#endif
+//#endif
 }
 
 @end

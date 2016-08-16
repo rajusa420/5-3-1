@@ -13,6 +13,7 @@
 - (id)init;
 - (NSArray*) getWeightEntriesForWeekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type;
 - (NSArray*) getRecentEntriesForWeekType: (FiveThreeOneWeek) weekType exerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type;
+- (NSArray*) getWeightEntriesForExerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type;
 - (BOOL)saveWeightEntry: (WeightEntry*) weightEntry;
 - (NSObject*)processWeightEntry: (id) statement;
 @end
