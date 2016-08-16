@@ -390,7 +390,7 @@
 
 - (BOOL) forceZeroYOrigin
 {
-    return YES;
+    return NO;
 }
 
 -(void) setChartPointValue: (NSArray*) chartPointValues
@@ -433,8 +433,12 @@
         }
     }
 
-    maxXValue_ += ((maxXValue_ - minXValue_)* [self xValuePaddingPercentage]);
-    maxYValue_ += ((maxYValue_ - minYValue_) * [self yValuePaddingPercentage]);
+    CGFloat xValuePadding = ((maxXValue_ - minXValue_)* [self xValuePaddingPercentage]);
+    CGFloat yValuePadding = ((maxYValue_ - minYValue_) * [self yValuePaddingPercentage]);
+    maxXValue_ += xValuePadding;
+    maxYValue_ += yValuePadding;
+
+    minYValue_ -= yValuePadding;
 
     // TODO: Make the axis have nice round numbers
     /*if ([self getNumberOfXGridLines] > 0)
