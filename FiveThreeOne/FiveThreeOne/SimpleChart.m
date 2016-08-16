@@ -433,8 +433,23 @@
         }
     }
 
-    CGFloat xValuePadding = ((maxXValue_ - minXValue_)* [self xValuePaddingPercentage]);
-    CGFloat yValuePadding = ((maxYValue_ - minYValue_) * [self yValuePaddingPercentage]);
+    CGFloat xValuePadding = 0;
+    if (maxXValue_ > minXValue_)
+    {
+        if (maxXValue_ - minXValue_ < [self getNumberOfXGridLines])
+            xValuePadding = [self getNumberOfXGridLines];
+        else
+            xValuePadding = ((maxXValue_ - minXValue_) * [self xValuePaddingPercentage]);
+    }
+    else
+        xValuePadding = maxXValue_ * [self xValuePaddingPercentage];
+
+    CGFloat yValuePadding = 0;
+    if (maxYValue_ > minYValue_)
+        yValuePadding = ((maxYValue_ - minYValue_) * [self yValuePaddingPercentage]);
+    else
+        yValuePadding = maxYValue_ * [self yValuePaddingPercentage];
+
     maxXValue_ += xValuePadding;
     maxYValue_ += yValuePadding;
 

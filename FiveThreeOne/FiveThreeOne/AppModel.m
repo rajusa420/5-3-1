@@ -34,7 +34,6 @@
 
 - (BOOL) logWeightEntry: (WeightEntry*) entry
 {
-    //entry.date = 5698;
     [weightDatabase_ beginTransaction];
 
     if (![weightDatabase_ saveWeightEntry: entry])
