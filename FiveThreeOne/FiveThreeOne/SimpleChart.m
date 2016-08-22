@@ -467,6 +467,7 @@
         CGFloat extraYPadding = fmodf(maxYValue_ - minYValue_, [self getNumberOfYGridLines]);
         maxYValue_ = ceilf(extraYPadding + maxYValue_);
     }*/
+    [self setNeedsDisplay];
 }
 
 - (CGFloat) getMaxY

@@ -101,14 +101,14 @@
 
 - (BOOL) updateWeightEntry: (WeightEntry*) weightEntry
 {
-    NSString* sql = @"UPDATE WeightEntries SET weight = ?, reps = ?, time = ?, LastUpdated = strftime('%s','now')*1000 WHERE UniqueId = ?";
+    NSString* sql = @"UPDATE WeightEntries SET weight = ?, reps = ?, time = ?, LastUpdated = strftime('%s','now')*1000 WHERE rowid = ?";
     sqlite3_stmt* statement = [self getStatement: sql];
 
     int colIndex = 1;
     [self bindDouble: weightEntry.weight forStatement: statement atIndex: colIndex++];
     [self bindInt: (int)weightEntry.reps forStatement: statement atIndex: colIndex++];
     [self bindInt64: (sqlite_int64)([weightEntry.time timeIntervalSince1970] * 1000) forStatement: statement atIndex: colIndex++];
-    [self bindCFUUID: weightEntry.uniqueId forStatement: statement atIndex: colIndex++];
+    [self bindInt: weightEntry.id forStatement: statement atIndex: colIndex++];
 
     if (![self executeStatement: statement])
     {
@@ -125,10 +125,11 @@
     if (savedEntry)
     {
         weightEntry.uniqueId = savedEntry.uniqueId;
+        weightEntry.id = savedEntry.id;
         return [self updateWeightEntry: weightEntry];
     }
 
-    NSString* sql = @"Insert Into WeightEntries (weekType, exerciseType, type, date, time, deleted, lastupdated, uniqueid, weight, reps) Values (?, ?, ?, ?, ?, ?,  strftime('%s','now')*1000, ?, ?, ?)";
+    NSString* sql = @"Insert OR Replace Into WeightEntries (weekType, exerciseType, type, date, time, deleted, lastupdated, uniqueid, weight, reps) Values (?, ?, ?, ?, ?, ?,  strftime('%s','now')*1000, ?, ?, ?)";
     sqlite3_stmt* statement = [self getStatement: sql];
 
     int colIndex = 1;

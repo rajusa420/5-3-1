@@ -7,17 +7,16 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ExerciseDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SqlLiteDatabase.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DeadliftDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ExerciseDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/TextEntryTableViewCell.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DateHelper.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DateHelper.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SimpleChartCurrentValueOverlay.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/AppConstants.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SquatDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/WeekSelectorTableViewCell.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/CoreGraphicsHelper.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SquatViewController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ExerciseTypesManager.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/FiveThreeOneHelper.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SimpleChart.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/FiveThreeOneHelper.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/CoreGraphicsHelper.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DeadliftViewController.h" isTestSource="false" />
@@ -39,7 +38,7 @@
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ProjectionHelper.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/LiftViewController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/LiftNavigationController.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/WeekSelectorTableViewCell.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SquatDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/Assets.xcassets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ProjectionHelper.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/LiftViewController.h" isTestSource="false" />
@@ -52,7 +51,7 @@
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SimpleChartPointValue.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SimpleChartCurrentValueOverlay.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DoubleChartPointValue.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/AppModel.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SimpleChartCurrentValueOverlay.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DoubleChartPointValue.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/AppDelegate.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SqlLite3Statement.m" isTestSource="false" />
@@ -62,17 +61,18 @@
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/BenchViewController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DeadliftViewController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SimpleBarChart.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ExerciseTypesManager.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DeadliftDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/AppModel.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SimpleBarChart.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/DeadliftDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SquatViewController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/main.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/Database/WeightLog.sqlite" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/AppModel.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ShoulderPressViewController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SimpleChart.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/ShoulderPressViewController.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/TextEntryTableViewCell.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SimpleChart.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/SimpleChartLabelProvider.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FiveThreeOne/InputValidators.m" isTestSource="false" />

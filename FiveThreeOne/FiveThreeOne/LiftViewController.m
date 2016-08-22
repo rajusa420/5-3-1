@@ -108,8 +108,6 @@
         cell.backgroundColor = [UIColor redColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-
-
         return cell;
     }
     else if (indexPath.section == calculateSection)
@@ -473,6 +471,7 @@
 
 - (void) newWeightProjectionAvailable
 {
+    recentEntries_ = nil;
     [self.tableView reloadData];
 }
 @end
