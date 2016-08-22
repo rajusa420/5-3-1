@@ -252,18 +252,20 @@
     SimpleChartPointValue* prevValue = nil;
     for (SimpleChartPointValue*  pointValue in chartPointValues_)
     {
-        if (pointValue.xValue > value)
+        if (prevValue != nil)
         {
-            if (ABS(pointValue.xValue - value) > ABS(value - prevValue.xValue))
-                return prevValue;
+            if (pointValue.xValue > value)
+            {
+                if (ABS(pointValue.xValue - value) > ABS(value - prevValue.xValue))
+                    return prevValue;
 
-            return pointValue;
+                return pointValue;
+            }
         }
-
         prevValue = pointValue;
     }
 
-    return nil;
+    return prevValue;
 }
 
 - (void) drawPoints: (CGRect) rect

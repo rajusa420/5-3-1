@@ -66,7 +66,7 @@
 
 - (NSArray*) getWeightEntriesForExerciseType: (ExerciseType) exerciseType type: (WeightEntryType) type
 {
-    NSString* sql = @"Select rowid, weekType, exerciseType, type, date, time, deleted, lastupdated, uniqueid, weight, reps FROM WeightEntries WHERE exerciseType = ? AND type = ? ORDER BY date DESC, rowid DESC";
+    NSString* sql = @"Select rowid, weekType, exerciseType, type, date, time, deleted, lastupdated, uniqueid, weight, reps FROM WeightEntries WHERE exerciseType = ? AND type = ? ORDER BY date ASC, rowid ASC";
     sqlite3_stmt* statement = [self getStatement: sql];
 
     int colIndex = 1;
